@@ -13,9 +13,64 @@ for x in fruits:
   print(x)
 fruits = "cherry"
 for x  in fruits:
-  print(x)'''
+  print(x)
 fruits = ["banana", "orange", "apple","mandarine", "mango", "cherry"]
 for x in fruits:
   if x == "mandarine":
     break
-  print (x)
+  print (x)'''
+
+  import string
+  import random
+
+ # characters to generate password from
+ alphabets = list(string.ascii_letters)
+ digits = list(string.digits)
+ special_characters = list ("!@#$%^&*()")
+ characters = list(string.ascii_letters+ string.digits + "!@#$%^&*()")                   
+
+ def generate_random_password():
+   # lenght of password from the User
+   length = int (input("Enter password length:"))
+
+#Number of Character types
+alphabets_count = int(input("Enter alphabets couint in password: "))
+digits_count = int(input(" Enter digits count in password: "))
+special_characters_count = int (input("Enter special characters count password: "))
+
+characters_count = alphabets_count + digits_count + special_characters_count
+
+#Check the total length with characters sum alphabets_count
+#print not valid if the sum is greater than length
+if characters_count > length:
+  print ("Characters total count is greater than the password length")
+  return
+
+  # Initializing the password
+  password = []
+
+  #picking random alphabets
+  for i in range (alphabet_count):
+    password.append(random.choice(alphabets))
+
+  #picking random digits
+  for i in range (digits_count):
+      password.append(random.choice(digits))
+
+      #picking random special characters
+      for i in range (special_characters_count):
+        password.append(random.choice(special_characters))
+
+        #If the total characters count in less than the password length, add random characters to make it equal to the length
+        if characters_count < length:
+          random.shuffle(characters)
+          for i in range (length - characters_count):
+            password append(random.choice(characters))
+
+  #shuffling the the resultant password
+  random.shuffle(password)
+
+  #convertin the list to string, printing the list
+  print("".join(password))
+
+  #invoking the function
